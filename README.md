@@ -20,9 +20,9 @@ Rust是一门很新的语言，但已经非常流行。它之所以受欢迎，�
 
 *简单英语学Rust*写于2020年7月至8月，长达400多页。如果你有任何问题，可以在这里或[在LinkedIn上](https://www.linkedin.com/in/davemacleod)或[在Twitter上](https://twitter.com/mithridates)联系我。如果你发现有什么不对的地方，或者要提出pull request，请继续。已经有超过20人帮助我们修复了代码中的错别字和问题，所以你也可以。我不是世界上最好的Rust专家，所以我总是喜欢听到新的想法，或者看看哪里可以让这本书变得更好。
 
-- [第1部分 - 浏览器中的Rust](#第1部分---浏览器中的Rust)
+- [第1部分 - 浏览器中的Rust](#第1部分---浏览器中的rust)
   - [Rust Playground](#rust-playground)
-  - [🚧 and ⚠️](#和%EF%B8%8F)
+  - [🚧和⚠️](#和️)
   - [注释](#注释)
   - [类型](#类型)
     - [原始类型](#原始类型)
@@ -34,7 +34,7 @@ Rust是一门很新的语言，但已经非常流行。它之所以受欢迎，�
     - [最小和最大的数](#最小和最大的数)
   - [可变性](#可变性)
     - [遮蔽](#遮蔽)
-  - [栈，堆和指针](#栈堆和指针)
+  - [栈、堆和指针](#栈堆和指针)
   - [关于打印的更多信息](#关于打印的更多信息)
   - [字符串](#字符串)
   - [const和static](#const和static)
@@ -53,30 +53,30 @@ Rust是一门很新的语言，但已经非常流行。它之所以受欢迎，�
   - [枚举](#枚举)
     - [使用多种类型的枚举](#使用多种类型的枚举)
   - [循环](#循环)
-  - [实现结构和枚举](#实现结构和枚举)
+  - [实现结构体和枚举](#实现结构体和枚举)
   - [解构](#解构)
   - [引用和点运算符](#引用和点运算符)
   - [泛型](#泛型)
-  - [选项和结果](#选项和结果)
-    - [选项](#选项)
-    - [结果](#结果)
+  - [Option和Result](#option和result)
+    - [Option](#option)
+    - [Result](#result)
   - [其他集合类型](#其他集合类型)
-    - [HashMap和BTreeMap](#HashMap和BTreeMap)
+    - [HashMap和BTreeMap](#hashmap和btreemap)
     - [HashSet和BTreeSet](#hashset和btreeset)
     - [二叉堆](#二叉堆)
     - [VecDeque](#vecdeque)
   - [?操作符](#操作符)
     - [When panic and unwrap are good](#when-panic-and-unwrap-are-good)
-  - [trait](#trait)
+  - [特性](#特性)
     - [From trait](#from-trait)
-    - [在函数中使用字符串和&str](#在函数中使用字符串和&str)
+    - [在函数中使用字符串和&str](#在函数中使用字符串和str)
   - [链式方法](#链式方法)
   - [迭代器](#迭代器)
     - [迭代器如何工作](#迭代器如何工作)
   - [闭包](#闭包)
-    - [闭包中的_](#闭包中的_)
+    - [闭包中的|_|](#闭包中的_)
     - [闭包和迭代器的有用方法](#闭包和迭代器的有用方法)
-  - [dbg! 宏和.检查器](#dbg宏和inspect)
+  - [dbg! 宏和.inspect](#dbg-宏和inspect)
   - [&str的类型](#str的类型)
   - [生命期](#生命期)
   - [内部可变性](#内部可变性)
@@ -94,17 +94,17 @@ Rust是一门很新的语言，但已经非常流行。它之所以受欢迎，�
   - [impl Trait](#impl-trait)
   - [Arc](#arc)
   - [Channels](#channels)
-  - [阅读Rust文档](#阅读Rust文档)
-    - [assert_eq! ](#assert_eq)
+  - [阅读Rust文档](#阅读rust文档)
+    - [assert_eq!](#assert_eq)
     - [搜索](#搜索)
-    - [[src]按钮](#src-按钮)
+    - [[src] 按钮](#src-按钮)
     - [trait信息](#trait信息)
   - [属性](#属性)
   - [Box](#box)
-  - [Box around traits](#box-around-traits)
+  - [用Box包裹trait](#用box包裹trait)
   - [默认值和建造者模式](#默认值和建造者模式)
-  - [Deref和DerefMut](#Deref和DerefMut)
-  - [Crate和模块](#Crate和模块)
+  - [Deref和DerefMut](#deref和derefmut)
+  - [Crate和模块](#crate和模块)
   - [测试](#测试)
     - [测试驱动的开发](#测试驱动的开发)
   - [外部crate](#外部crate)
@@ -116,23 +116,23 @@ Rust是一门很新的语言，但已经非常流行。它之所以受欢迎，�
   - [标准库之旅](#标准库之旅)
     - [数组](#数组-1)
     - [char](#char)
-    - [Integer](#integers)
-    - [Floats](#floats)
-    - [Bool](#bool)
+    - [整数](#整数)
+    - [浮点数](#浮点数-1)
+    - [bool](#bool)
     - [Vec](#vec)
     - [String](#string)
-    - [OsString和CString](#OsString和CString)
+    - [OsString和CString](#osstring和cstring)
     - [Mem](#mem)
     - [Prelude](#prelude)
     - [Time](#time)
     - [其他宏](#其他宏)
-    - [编写宏](#编写宏)
-- [第2部分 - 电脑上的Rust](#第2部分---电脑上的Rust)
+  - [编写宏](#编写宏)
+- [第2部分 - 电脑上的Rust](#第2部分---电脑上的rust)
   - [cargo](#cargo)
   - [接受用户输入](#接受用户输入)
   - [使用文件](#使用文件)
   - [cargo文档](#cargo文档)
-  - [结束了吗？](#结束了吗？)
+  - [结束了吗？](#结束了吗)
 
 # 第1部分 - 浏览器中的Rust
 
@@ -6218,7 +6218,7 @@ fn main() {
 
 既然 `.filter_map()` 需要 `Option`，那么 `Result` 呢？没问题:有一个叫做 `.ok()` 的方法，可以把 `Result` 变成 `Option`。之所以叫`.ok()`，是因为它能发送的只是`Ok`的结果(`Err`的信息没有了)。你记得`Option`是`Option<T>`，而`Result`是`Result<T, E>`，同时有`Ok`和`Err`的信息。所以当你使用`.ok()`时，任何`Err`的信息都会丢失，变成`None`。
 
-使用 `.parse()` 是一个很简单的例子，我们尝试解析一些用户输入。`.parse()`在这里接受一个`&str`，并试图把它变成一个`f32`。它返回一个 `Result`，但我们使用的是 `filter_map()`，所以我们只需抛出错误。`Err`的任何内容都会变成`None`，并被`.filter_map()`过滤掉。
+使用 `.parse()` 是一个很简单的例子，我们尝试解析一些用户输入。`.parse()`在这里接受一个`&str`，并试图把它变成一个`f32`。它返回一个 `Result`，但我们使用的是 `filter_map()`，所以我们只需扔掉错误。`Err`的任何内容都会变成`None`，并被`.filter_map()`过滤掉。
 
 ```rust
 fn main() {
@@ -6438,7 +6438,7 @@ None
 
 接下来我们创建一个更小的vec，问它是否都是字母(用`.is_alphabetic()`方法)。然后我们问它是不是所有的字符都小于韩文字符`'행'`。
 
-还要注意放一个参照物，因为`.iter()`给了一个参照物，你需要一个`&`和另一个`&`进行比较。
+还要注意放一个引用，因为`.iter()`给出了一个引用，你需要一个`&`和另一个`&`进行比较。
 
 ```rust
 fn in_char_vec(char_vec: &Vec<char>, check: char) {
